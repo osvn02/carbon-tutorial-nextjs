@@ -12,6 +12,7 @@ import {
   SideNavItems,
   HeaderSideNavItems,
 } from '@carbon/react';
+import Link from 'next/link';
 
 import { Switcher, Notification, UserAvatar } from '@carbon/icons-react';
 
@@ -25,12 +26,15 @@ const TutorialHeader = () => (
           onClick={onClickSideNavExpand}
           isActive={isSideNavExpanded}
         />
-        <HeaderName href="/" prefix="IBM">
-          Carbon Tutorial
-        </HeaderName>
+        <Link href="/" passHref legacyBehavior>
+          <HeaderName prefix="IBM">Carbon Tutorial</HeaderName>
+        </Link>
         <HeaderNavigation aria-label="Carbon Tutorial">
-          <HeaderMenuItem href="/repos">Repositories</HeaderMenuItem>
+          <Link href="/repos" passHref legacyBehavior>
+            <HeaderMenuItem>Repositories</HeaderMenuItem>
+          </Link>
         </HeaderNavigation>
+
         <SideNav
           aria-label="Side navigation"
           expanded={isSideNavExpanded}
@@ -38,7 +42,9 @@ const TutorialHeader = () => (
         >
           <SideNavItems>
             <HeaderSideNavItems>
-              <HeaderMenuItem href="/repos">Repositories</HeaderMenuItem>
+              <Link href="/repos" passHref legacyBehavior>
+                <HeaderMenuItem>Repositories</HeaderMenuItem>
+              </Link>
             </HeaderSideNavItems>
           </SideNavItems>
         </SideNav>
